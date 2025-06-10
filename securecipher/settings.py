@@ -45,8 +45,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_extensions',
     'rest_framework_simplejwt',  # For JWT authentication
-    #'django_filters',  # For filtering in DRF
-
+    
     #'rest_framework_tracking',  # For tracking DRF requests
     #'rest_framework_throttling',  # For throttling in DRF
 
@@ -55,6 +54,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',  # Add this at the top
+    #'rest_framework_tracking.middleware.LoggingMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -157,7 +157,7 @@ REST_FRAMEWORK = {
     ],
     # What it does: Requires authentication for all API endpoints by default
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',  # Change to IsAuthenticated for production
     ],
     # What it does: All API responses will be in JSON format
     'DEFAULT_RENDERER_CLASSES': [

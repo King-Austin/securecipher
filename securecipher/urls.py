@@ -17,7 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# What it does: Customizes the default Django admin interface branding
+admin.site.site_header = 'SecureCipher Administration'
+admin.site.site_title = 'SecureCipher Admin'
+admin.site.index_title = 'Welcome to SecureCipher Admin Portal'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/users/', include('users.urls')),  # DRF user endpoint
+    path('api/users/', include('users.urls')),  # User management endpoints
+    #path('api/crypto/', include('crypto_engine.urls')),  # Cryptography endpoints
+    #path('api/transactions/', include('transactions.urls')),  # Transaction endpoints
+    #path('api/audit/', include('audit_log.urls')),  # Audit log endpoints
+    #path('api/tls/', include('tls_middleware.urls')),  # TLS middleware endpoints
 ]
