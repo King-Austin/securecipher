@@ -18,7 +18,7 @@ Register users, generate/store ECDSA public keys, link to virtual Opay accounts,
     • - crypto_engine for key validation
     • - client_services for WebCrypto integration
 🔐 Security Considerations:
-    • - Public key integrity verification
+    • - Public key integrity verification nbdf
     • - Private key never leaves user device
 2. Crypto Engine Module
 📌 Purpose:
