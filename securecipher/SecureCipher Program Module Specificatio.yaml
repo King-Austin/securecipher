@@ -149,6 +149,36 @@ Securely manage the lifecycle of cryptographic keys used in SecureCipher.
 
 
 
+# User Management
+GET  /api/users/ping/
+POST /api/users/register/
+
+# Cryptography
+POST /api/crypto/generate-keys/
+POST /api/crypto/validate-signature/
+GET  /api/crypto/test-crypto/
+
+# Transactions
+POST /api/transactions/create/
+POST /api/transactions/process/
+GET  /api/transactions/history/
+GET  /api/transactions/<id>/
+
+# Audit Logs
+GET  /api/audit/logs/
+GET  /api/audit/user-logs/<user_id>/
+POST /api/audit/event/
+
+# TLS Middleware
+GET  /api/tls/verify/
+GET  /api/tls/status/
+
+# JWT Authentication
+POST /api/token/
+POST /api/token/refresh/
+
+
+
 
 
 
@@ -219,3 +249,32 @@ Audit Logs	Prove what happened, when, and by whom
     SecureCipher lets you send highly secure, verified transactions over the internet, and makes sure no one can lie about what happened.
 
 Would you like me to create a one-page PDF or client-friendly pitch using this explanation — to help them grasp it instantly during a demo?
+
+# Authentication
+POST /api/token/                     # Get JWT token
+POST /api/token/refresh/             # Refresh JWT token
+
+# User Management
+GET  /api/users/ping/                # Health check
+POST /api/users/register/            # User registration
+POST /api/users/authenticate/        # ECDSA authentication
+
+# Cryptography Operations
+POST /api/crypto/generate-keys/      # Generate server keypair
+POST /api/crypto/validate-signature/ # Validate ECDSA signature
+GET  /api/crypto/test-crypto/        # Test crypto engine
+
+# Transaction Processing
+POST /api/transactions/create/       # Create transaction
+POST /api/transactions/process/      # Process with dual signatures
+GET  /api/transactions/history/      # Transaction history
+GET  /api/transactions/<id>/         # Transaction details
+
+# Audit Logging
+GET  /api/audit/logs/                # All audit logs
+GET  /api/audit/user-logs/<id>/      # User-specific logs
+POST /api/audit/event/               # Log security event
+
+# TLS Middleware
+GET  /api/tls/verify/                # Verify TLS status
+GET  /api/tls/status/                # TLS middleware status
